@@ -1,6 +1,6 @@
 **MIST4610-GroupA3**   
 Catherine Brumbeloe - Group Leader  
-Camryn Copeland- SQL Writer  
+Camryn Copeland- SQL Writer  edit test
 Joseph Halab - Data Wrangler  
 Diya Mopur - Database Designer  
 Sachit Juneja - Conceptual Modeler  
