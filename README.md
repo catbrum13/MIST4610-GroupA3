@@ -1,4 +1,4 @@
-MIST4610-GroupA3  
+**MIST4610-GroupA3**   
 Catherine Brumbeloe - Group Leader  
 Camryn Copeland- SQL Writer  
 Joseph Halab - Data Wrangler  
