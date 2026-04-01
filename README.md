@@ -42,6 +42,7 @@ Staff Assignment and Employee has two one-to-many relationships. One for a coord
 
 Venue and Venue Affiliation have two one-to-many relationships. One for Venue A and one for Venue B. A venue can have multiple venue affiliations, but each affiliation can only between one other venue.   
 
+---
 
 ## Data Dictionary 
 
@@ -201,11 +202,14 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 | v_setupTime        | DATETIME  | —      | —   | Date and time the vendor is scheduled to set up their booth          |
 | v_departureTime    | DATETIME  | —      | —   | Date and time the vendor is scheduled to depart/break down           |
 
-## Database Information 
+---
+
+## Ten Queries
+
+
+### Database Information 
 Database Name: mb_A3
+
 All ten queries have been saved as stored procedures in this database.
 Each procedure follows the required naming convention (GP_Q1 through GP_Q10).
 All procedures were tested using CALL statements and executed successfully.
-
-
-
