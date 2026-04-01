@@ -24,6 +24,8 @@ In addition, LMC works with external vendors like food trucks or merchandise sel
 
 ## Data Model
 
+![Data Model Diagram](FINAL.MIST.PROJECT.png)
+
 Vendor and Event have a many-to-many relationship, creating a new entity Vendor Booking that has a one-to-many with Event and Vendor. One event has many vendor bookings and one vendor has many vendor bookings.  
 
 Event and Ticket have a one-to-many relationship. One event sells many tickets and one ticket goes to one event.   
