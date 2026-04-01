@@ -49,7 +49,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: VENUE
+# Table: VENUE 
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -63,7 +63,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: VENUE_AFFILIATION
+# Table: VENUE_AFFILIATION 
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -75,7 +75,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: ARTIST
+# Table: ARTIST
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -86,7 +86,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: EVENT
+# Table: EVENT
 
 | Column Name       | Data Type    | Length | Key | Description                                                              |
 |-------------------|--------------|--------|-----|--------------------------------------------------------------------------|
@@ -99,7 +99,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: ARTIST_BOOKING
+# Table: ARTIST_BOOKING
 
 | Column Name       | Data Type    | Length | Key | Description                                                              |
 |-------------------|--------------|--------|-----|--------------------------------------------------------------------------|
@@ -111,7 +111,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: RESOURCE_TYPE
+# Table: RESOURCE_TYPE
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -122,7 +122,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: RESOURCE_ITEM
+# Table: RESOURCE_ITEM
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -132,7 +132,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: ALLOCATION_RECORD
+# Table: ALLOCATION_RECORD
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -145,7 +145,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: EMPLOYEE
+# Table: EMPLOYEE
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
@@ -156,7 +156,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: STAFF_ASSIGNMENT
+# Table: STAFF_ASSIGNMENT
 
 | Column Name         | Data Type    | Length | Key | Description                                                              |
 |---------------------|--------------|--------|-----|--------------------------------------------------------------------------|
@@ -168,7 +168,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: TICKET
+# Table: TICKET
 
 | Column Name | Data Type | Length | Key | Description                                                        |
 |-------------|-----------|--------|-----|--------------------------------------------------------------------|
@@ -178,7 +178,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: VENDOR
+# Table: VENDOR
 
 | Column Name  | Data Type | Length | Key | Description                                                             |
 |--------------|-----------|--------|-----|-------------------------------------------------------------------------|
@@ -190,7 +190,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-## Table: VENDOR_BOOKING
+# Table: VENDOR_BOOKING
 
 | Column Name        | Data Type | Length | Key | Description                                                          |
 |--------------------|-----------|--------|-----|----------------------------------------------------------------------|
