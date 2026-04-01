@@ -49,7 +49,7 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ---
 
-# Table: VENUE 
+## Table: VENUE 
 
 | Column Name    | Data Type    | Length | Key | Description                                                                 |
 |----------------|--------------|--------|-----|-----------------------------------------------------------------------------|
