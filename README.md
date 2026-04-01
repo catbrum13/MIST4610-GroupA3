@@ -201,5 +201,11 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 | v_setupTime        | DATETIME  | —      | —   | Date and time the vendor is scheduled to set up their booth          |
 | v_departureTime    | DATETIME  | —      | —   | Date and time the vendor is scheduled to depart/break down           |
 
+## Database Information 
+Database Name: mb_A3
+All ten queries have been saved as stored procedures in this database.
+Each procedure follows the required naming convention (GP_Q1 through GP_Q10).
+All procedures were tested using CALL statements and executed successfully.
+
 
 
