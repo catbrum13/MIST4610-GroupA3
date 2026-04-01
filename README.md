@@ -216,6 +216,8 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 **WHERE** VendorName REGEXP '\[Aa\]';
 
+![First five rows of output for question 1](Question1Output.png)
+
 **What This Covers:** Single Entity, SELECT, FROM, VENDOR
 
 **Managerial Justification:** Used for quick vendor lookup or filtering when searching incomplete records or matching vendor lists for contracts, communication, or reporting.
@@ -232,6 +234,8 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 **ORDER BY** VENDOR_BOOKING.VenBookingSetupTime;
 
+![First five rows of output for question 2](Question2Output.png)
+
 **What this Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, WHERE, ORDERBY
 
 **Managerial Justification:** Helps operations plan upcoming vendor logistics, ensuring booth setup schedules are coordinated and conflicts are avoided for future events.
@@ -243,6 +247,8 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 **FROM** ARTIST_BOOKING
 
 **GROUP BY** EventID;
+
+![First five rows of output for question ](Question3Output.png)
 
 **What This Covers:** Single Entity, SELECT, FROM, GROUP BY, Aggregate Function (COUNT) 
 
@@ -268,6 +274,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 
 **ORDER BY** EVENT.EventID;
 
+![First five rows of output for question 4](Question4Output.png)
+
 **What This Covers:** 3 Entities, Recursive Relationship, 1 to Many Relationship, SELECT, FROM, JOIN, ORDER BY
 
 **Managerial Justification:** Ensures accountability and coverage by clearly identifying responsible staff for each event in case of issues or emergencies.
@@ -285,6 +293,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 **HAVING COUNT**(TicketID) > 10
 
 **ORDER BY** TotalTickets **DESC**;
+
+![First five rows of output for question 5](Question5Output.png)
 
 **What This Covers:** Single Entity, SELECT, FROM, GROUP BY, HAVING, Aggregate Function (COUNT), ORDER BY
 
@@ -304,6 +314,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 
 **HAVING** COUNT(ARTIST_BOOKING.EventID) > 1;
 
+![First five rows of output for question 6](Question6Output.png)
+
 **What This Covers:** 2 Entities, Many to Many Relationship, SELECT, FROM, JOIN, GROUP BY, HAVING, Aggregate Function (COUNT)
 
 ​​**Managerial Justification:** Helps identify frequently booked artists, which supports relationship management, negotiation leverage, and scheduling optimization.
@@ -319,6 +331,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 **GROUP BY** RESOURCE_ITEM.ResItemInventoryNum
 
 **ORDER BY** TotalAllocations **DESC;**
+
+![First five rows of output for question 7](Question7Output.png)
 
 **What This Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, GROUP BY, ORDER BY, Aggregate Function (COUNT)
 
@@ -340,9 +354,11 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 
 **WHERE** VENUE_AFFILIATION.AffiliationType = 'Shared Equipment';
 
+![First five rows of output for question 8](Question8Output.png)
+
 **What This Covers:** 2 Entities, Recursive Relationship, SELECT, FROM, JOIN, WHERE
 
-**Managerial Justification:**Helps management understand resource-sharing networks between venues, enabling cost savings and better coordination of equipment usage.
+**Managerial Justification:** Helps management understand resource-sharing networks between venues, enabling cost savings and better coordination of equipment usage.
 
 ### **9.** Rewrite:List the first and last names of all the coordinators and their backup coordinators for events where the coordinator's first name is "James".
 
@@ -360,6 +376,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 
 **WHERE** COORD.EmployeeFName = 'James';
 
+![First five rows of output for question 9](Question9Output.png)
+
 **What This Covers:** 2 Entities, Recursive Relationship, SELECT, FROM, JOIN, WHERE
 
 **Managerial Justification:** Used for staffing analysis or internal audits to track assignments, performance, or workload of specific employees.
@@ -373,6 +391,8 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 **JOIN** RESOURCE_TYPE **ON** RESOURCE_ITEM.TypeID = RESOURCE_TYPE.TypeID
 
 **WHERE** RESOURCE_ITEM.ResItemCondition = 'Good';
+
+![First five rows of output for question 10](Question10Output.png)
 
 **What This Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, WHERE
 
