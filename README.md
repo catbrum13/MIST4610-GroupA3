@@ -402,5 +402,5 @@ BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
 Database Name: mb_A3
 
 All ten queries have been saved as stored procedures in this database.
-Each procedure follows the required naming convention (GP_Q1 through GP_Q10).
+Each procedure follows the required naming convention (A3_Q1 through A3_Q10).
 All procedures were tested using CALL statements and executed successfully.
