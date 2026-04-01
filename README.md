@@ -208,6 +208,175 @@ Venue and Venue Affiliation have two one-to-many relationships. One for Venue A 
 
 ## Ten Queries
 
+**1.** List the Vendor ID and name for any Vendors whose name contains an A.
+
+**SELECT** VendorID, VendorName
+
+**FROM** VENDOR
+
+**WHERE** VendorName REGEXP '\[Aa\]';
+
+**What This Covers:** Single Entity, SELECT, FROM, VENDOR
+
+**Managerial Justification:** Used for quick vendor lookup or filtering when searching incomplete records or matching vendor lists for contracts, communication, or reporting.
+
+**2.** List each vendor's name along with their booth assignment and setup time for any vendor bookings scheduled after April 1, 2025. Order the results by setup time.
+
+**SELECT** VENDOR.VendorName, VENDOR_BOOKING.VenBookingBoothAsg, VENDOR_BOOKING.VenBookingSetupTime
+
+**FROM** VENDOR
+
+**JOIN** VENDOR_BOOKING ON VENDOR.VendorID = VENDOR_BOOKING.VendorID
+
+**WHERE** VENDOR_BOOKING.VenBookingSetupTime > '2025-04-01'
+
+**ORDER BY** VENDOR_BOOKING.VenBookingSetupTime;
+
+**What this Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, WHERE, ORDERBY
+
+**Managerial Justification:** Helps operations plan upcoming vendor logistics, ensuring booth setup schedules are coordinated and conflicts are avoided for future events.
+
+**3.** List each Event ID and the number of artist bookings for that event. Only include events that have at least one artist booking.
+
+**SELECT** EventID, **COUNT**(\*) **AS** TotalArtistBookings
+
+**FROM** ARTIST_BOOKING
+
+**GROUP BY** EventID;
+
+**What This Covers:** Single Entity, SELECT, FROM, GROUP BY, Aggregate Function (COUNT) 
+
+**Managerial Justification:** Allows management to assess event complexity and staffing needs based on how many artists are performing at each event.
+
+**4.** List each Event ID along with its assigned coordinator and backup coordinator, ordered by Event ID.
+
+**SELECT** EVENT.EventID, COORD.EmployeeFName **AS** CoordinatorFirstName,
+
+COORD.EmployeeLName **AS** CoordinatorLastName,
+
+BACKUP.EmployeeFName **AS** BackupCoordinatorFirstName,
+
+BACKUP.EmployeeLName **AS** BackupCoordinatorLastName
+
+**FROM** EVENT, STAFF_ASSIGNMENT, EMPLOYEE COORD, EMPLOYEE BACKUP,
+
+**WHERE** EVENT.EventID = STAFF_ASSIGNMENT.EventID
+
+**AND** STAFF_ASSIGNMENT.CoordEmployeeID = COORD.EmployeeID
+
+**AND** STAFF_ASSIGNMENT.BackCoordEmployeeID = BACKUP.EmployeeID
+
+**ORDER BY** EVENT.EventID;
+
+**What This Covers:** 3 Entities, Recursive Relationship, 1 to Many Relationship, SELECT, FROM, JOIN, ORDER BY
+
+**Managerial Justification:** Ensures accountability and coverage by clearly identifying responsible staff for each event in case of issues or emergencies.
+
+**5.** List each Event ID and the number of tickets sold, but only include events that have sold more than 10 tickets, ordered from highest to lowest ticket count.
+
+**SELECT** EventID,
+
+**COUNT**(TicketID) **AS** TotalTickets
+
+**FROM** TICKET
+
+**GROUP BY** EventID
+
+**HAVING COUNT**(TicketID) > 10
+
+**ORDER BY** TotalTickets **DESC**;
+
+**What This Covers:** Single Entity, SELECT, FROM, GROUP BY, HAVING, Aggregate Function (COUNT), ORDER BY
+
+**Managerial Justification:** Identifies high-performing events to evaluate revenue drivers and prioritize marketing or resource allocation.
+
+**6.** List each artist ID, first name, and last name as well as the number of events they are booked for. Only include artists booked for more than 1 event.
+
+**SELECT** ARTIST.ArtID, ARTIST.ArtFirstName, ARTIST.ArtLastName, **COUNT**(ARTIST_BOOKING.EventID) **AS** TotalEvents
+
+**FROM** ARTIST
+
+**JOIN** ARTIST_BOOKING
+
+**ON** ARTIST.ArtID = ARTIST_BOOKING.ArtID
+
+**GROUP BY** ARTIST.ArtID, ARTIST.ArtFirstName, ARTIST.ArtLastName
+
+**HAVING** COUNT(ARTIST_BOOKING.EventID) > 1;
+
+**What This Covers:** 2 Entities, Many to Many Relationship, SELECT, FROM, JOIN, GROUP BY, HAVING, Aggregate Function (COUNT)
+
+​​**Managerial Justification:** Helps identify frequently booked artists, which supports relationship management, negotiation leverage, and scheduling optimization.
+
+**7.**List each resource item inventory number and the number of times it has been allocated, ordered from most to least used.
+
+**SELECT** RESOURCE_ITEM.ResItemInventoryNum, **COUNT**(ALLOCATION_RECORD.AllocationRecordID) **AS** TotalAllocations
+
+**FROM** RESOURCE_ITEM, ALLOCATION_RECORD
+
+**WHERE** RESOURCE_ITEM.ResItemInventoryNum = ALLOCATION_RECORD.ResItemInventoryNum
+
+**GROUP BY** RESOURCE_ITEM.ResItemInventoryNum
+
+**ORDER BY** TotalAllocations **DESC;**
+
+**What This Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, GROUP BY, ORDER BY, Aggregate Function (COUNT)
+
+**Managerial Justification:** Supports inventory management by identifying heavily used equipment, informing maintenance schedules and future purchasing decisions.
+
+**8.** List the names of affiliated venue pairs and the date their affiliation was started, but only include affiliations of type shared equipment.
+
+**SELECT** VenueA.VenName **AS** VenueAName, VenueB.VenName **AS** VenueBName, VENUE_AFFILIATION.AffiliationStartDate
+
+**FROM** VENUE_AFFILIATION
+
+**JOIN** VENUE VenueA
+
+**ON** VENUE_AFFILIATION.VenAID = VenueA.VenID
+
+**JOIN** VENUE VenueB
+
+**ON** VENUE_AFFILIATION.VenBID = VenueB.VenID
+
+**WHERE** VENUE_AFFILIATION.AffiliationType = 'Shared Equipment';
+
+**What This Covers:** 2 Entities, Recursive Relationship, SELECT, FROM, JOIN, WHERE
+
+**Managerial Justification:**Helps management understand resource-sharing networks between venues, enabling cost savings and better coordination of equipment usage.
+
+**9.** Rewrite:List the first and last names of all the coordinators and their backup coordinators for events where the coordinator's first name is "James".
+
+**SELECT** COORD.EmployeeFName **AS** CoordinatorFirstName, COORD.EmployeeLName **AS** CoordinatorLastName, BACKUP.EmployeeFName **AS** BackupFirstName, BACKUP.EmployeeLName **AS** BackupLastName
+
+**FROM** STAFF_ASSIGNMENT
+
+**JOIN** EMPLOYEE COORD
+
+**ON** STAFF_ASSIGNMENT.CoordEmployeeID = COORD.EmployeeID
+
+**JOIN** EMPLOYEE BACKUP
+
+**ON** STAFF_ASSIGNMENT.BackCoordEmployeeID = BACKUP.EmployeeID
+
+**WHERE** COORD.EmployeeFName = 'James';
+
+**What This Covers:** 2 Entities, Recursive Relationship, SELECT, FROM, JOIN, WHERE
+
+**Managerial Justification:** Used for staffing analysis or internal audits to track assignments, performance, or workload of specific employees.
+
+**10.** List the inventory number, type name, and condition of all resource items that are in "Good" condition.
+
+**SELECT** RESOURCE_ITEM.ResItemInventoryNum, RESOURCE_TYPE.TypeName, RESOURCE_ITEM.ResItemCondition
+
+**FROM** RESOURCE_ITEM
+
+**JOIN** RESOURCE_TYPE **ON** RESOURCE_ITEM.TypeID = RESOURCE_TYPE.TypeID
+
+**WHERE** RESOURCE_ITEM.ResItemCondition = 'Good';
+
+**What This Covers:** 2 Entities, 1 to Many Relationship, SELECT, FROM, JOIN, WHERE
+
+**Managerial Justification:** Supports operational planning by identifying usable equipment and avoiding allocation of items in poor condition.
 
 ### Database Information 
 Database Name: mb_A3
