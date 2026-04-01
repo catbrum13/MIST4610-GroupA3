@@ -43,7 +43,7 @@ Staff Assignment and Employee has two one-to-many relationships. One for a coord
 Venue and Venue Affiliation have two one-to-many relationships. One for Venue A and one for Venue B. A venue can have multiple venue affiliations, but each affiliation can only between one other venue.   
 
 
-# Data Dictionary — The Live Music Circuit (MIST 4610 Group Project #1)
+## Data Dictionary 
 
 > **Note:** All venue operations are limited to Athens, GA (ATH). Therefore city, state, and zip code are not tracked separately in the address field.
 
