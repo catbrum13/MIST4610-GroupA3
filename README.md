@@ -4,7 +4,6 @@ Catherine Brumbeloe - Group Leader
 Camryn Copeland- SQL Writer  
 Joseph Halab - Data Wrangler  
 Diya Mopur - Database Designer  
-Sachit Juneja - Conceptual Modeler  
 
 ---
 
